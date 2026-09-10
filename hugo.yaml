@@ -1,0 +1,7 @@
+baseURL: 'https://stories.vissfamily.com/'
+locale: 'en-us'
+title: 'Viss Family Stories'
+theme: 'papermod'
+params:
+  hideFooter: true
+
