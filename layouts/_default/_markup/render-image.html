@@ -1,0 +1,10 @@
+{{- $img := .Page.Resources.GetMatch .Destination -}}
+{{- if $img -}}
+  {{- /* Resize the image to 800px wide, keeping aspect ratio, and convert to WebP */ -}}
+  {{- $processed := $img.Resize "800x webp" -}}
+  <img src="{{ $processed.RelPermalink }}" width="{{ $processed.Width }}" height="{{ $processed.Height }}" alt="{{ .Text }}" {{ with .Title }}title="{{ . }}"{{ end }}>
+{{- else -}}
+  {{- /* Fallback if image isn't found in the bundle */ -}}
+  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}">
+{{- end -}}
+

@@ -1,0 +1,111 @@
+.header .logo a {
+  font-size: 1.5em;
+}
+.main h1 {
+  font-size: 1.25em;
+}
+
+/* Restrict PaperMod's outer header container to match the page margins */
+.header {
+    max-width: calc(var(--main-width) + var(--gap) * 2);
+    margin: 0 auto;
+    padding: 0 var(--gap);
+}
+
+/* Ensure the inner nav takes full advantage of the newly narrowed wrapper */
+.nav {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+nav.header-nav {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.homepage-text p {
+  margin-bottom: 24px;
+}
+
+/* Base Layout (Mobile First - Stacked) */
+.post-grid {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Base styling for the link card wrapper */
+.post-item a {
+  text-decoration: none;
+  color: var(--primary, #333); /* Uses PaperMod's primary text color variable */
+  display: flex;
+  flex-direction: column; /* Stack image and title vertically on mobile */
+  gap: 16px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+/* Image styles */
+.post-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* Typography alignment tweak */
+.post-item h2 {
+  font-size: 1.3rem;
+  margin: 0;
+  align-self: left; /* Centers title text relative to stacked items on mobile */
+}
+
+/* Large Screens Layout (Tablets & Desktops) */
+@media (min-width: 768px) {
+  .post-item a {
+    flex-direction: row; /* Aligns image and title side-by-side */
+    align-items: center; /* Perfectly centers the title vertically next to the image */
+  }
+
+  .post-item h2 {
+    align-self: auto; /* Resets mobile centering */
+    font-size: 1.5rem;
+  }
+
+  .post-item img {
+    width: 200px;
+  }
+
+  .post-item a:hover {
+    background: var(--code-bg, #f5f5f5); /* Subtle hover background */
+  }
+}
+
+/* Center the post images on mobile viewports */
+@media (max-width: 767px) {
+  /* 1. Make the link wrapper a column flexbox */
+  .post-item a {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+  }
+
+  /* 2. Strip the wrapper constraints of the details box so its children can be reordered globally */
+  .post-details {
+    display: contents; 
+    order: 1;
+  }
+
+  .post-item img {
+    order: 2;
+    display: block;
+    margin: 0 auto; /* Center the image */
+  }
+}
+
+.page-content img {
+  height: auto;
+}
