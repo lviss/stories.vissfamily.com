@@ -1,6 +1,12 @@
 {{ define "main" }}
   <main>
-    <h1>{{ .Title }}</h1>
+    <div class="title-and-img">
+      {{ range first 1 (.Resources.ByType "image") }}
+        {{ $processed := .Resize "50x webp" }}  
+      <img src="{{ $processed.RelPermalink }}">
+      {{ end }}
+      <h1 class="title">{{ .Title }}</h1>
+    </div>
     <div class="page-content">
       {{ .Content }}
     </div>

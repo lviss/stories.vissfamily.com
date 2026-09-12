@@ -1,8 +1,29 @@
 .header .logo a {
   font-size: 1.5em;
 }
+
 .main h1 {
-  font-size: 1.25em;
+  font-size: 1em;
+}
+
+.main {
+  padding-top: 0;
+}
+
+.title-and-img {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.title-and-img img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover; /* Prevents squishing or stretching */
+  flex-shrink: 0;
 }
 
 /* Restrict PaperMod's outer header container to match the page margins */
@@ -17,6 +38,7 @@
     margin: 0 !important;
     padding: 0 !important;
 }
+
 nav.header-nav {
     margin: 0 !important;
     padding: 0 !important;
@@ -24,6 +46,21 @@ nav.header-nav {
 
 .homepage-text p {
   margin-bottom: 24px;
+}
+
+/* Change link styling in the main post content */
+.page-content a {
+    text-decoration: underline;
+    text-underline-offset: 3px; /* Adds a clean space between text and underline */
+}
+
+/* Optional: Change the color when hovering over the link */
+.page-content a:hover {
+    color: #888;
+}
+
+.page-content video, .page-content p {
+  margin: 0 0 24px 0;
 }
 
 /* Base Layout (Mobile First - Stacked) */
